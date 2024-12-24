@@ -7,6 +7,7 @@ function Convert-FileType {
     This function will takes Path, FromType, ToType as input and convert file type from FromType to ToType files
     .PARAMETER Path
     This parameter is set by-default the current working directory.
+Support ValueFromPipeline = True
     .PARAMETER FromType
     This is a mandatory parameter which takes target file extension to be converted
     .PARAMETER ToType
