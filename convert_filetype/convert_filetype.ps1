@@ -23,7 +23,7 @@ Support ValueFromPipeline = True
         [Parameter(Mandatory = $true)]
         [string]$ToType
     )
-no
+
     Get-ChildItem -Path $Path -Filter "*$FromType" | ForEach-Object {
 
         $newName = $_.BaseName + $ToType
