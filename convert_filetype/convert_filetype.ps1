@@ -23,19 +23,16 @@ Support ValueFromPipeline = True
         [Parameter(Mandatory = $true)]
         [string]$ToType
     )
-
-    # Get all FromType files in the current folder
+no
     Get-ChildItem -Path $Path -Filter "*$FromType" | ForEach-Object {
 
         $newName = $_.BaseName + $ToType
 
         # Check if a ToType file with the same name already exists:
-        if (-not (Test-Path $newName)) {
-            # Rename the FromType file to ToType if no conflict:
+        if (-not (Test-Path $newName)) {
             Rename-Item -Path $_.FullName -NewName $newName
             Write-Host "Converted: $($_.Name) to $newName" -ForegroundColor Green
-        } else {
-            # Skip and display a message if a conflict is found:
+        } else {
             Write-Host "Skipped: $($_.Name) - $newName already exists" -ForegroundColor Red
 
         }
